@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: yellowgreen;
+        }
+
+        .head {
+            height: 198px;
+            width: 100%;
+            border-bottom: 2px solid #f40;
+            position: fixed;
+            top: -200px;
+            left: 0;
+            transition: all 0.5s linear;
+        }
+
+        .head img {
+            width: 300px;
+            margin: 25px 40px;
+            height: 150px;
+            cursor: pointer;
+        }
+
+        input {
+            width: 200px;
+            height: 50px;
+            text-align: center;
+            margin: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="head">
+        <img src="./images/timg1.jpg" alt="" class="img1">
+        <img src="./images/timg2.jpg" alt="" class="img2">
+        <img src="./images/timg3.jpg" alt="" class="img3">
+        <img src="./images/timg4.jpg" alt="" class="img4">
+        <img src="./images/timg5.jpg" alt="" class="img5">
+    </div>
+    <input type="submit" value="换肤">
+    <script>
+        var body = document.body
+        var head = document.querySelector(".head")
+        var img = document.querySelectorAll("img")
+        var btn = document.querySelector("input")
+        btn.onclick = function () {
+            head.style.top = 0
+            btn.style.visibility = "hidden"
+        }
+        img.forEach(function (item, index) {
+            item.onclick = function () {
+                body.style.background = 'url(./images/timg' + (index + 1) + '.jpg) no-repeat '
+                head.style.top = "-200px"
+                btn.style.visibility = "visible"
+            }
+        });
+    </script>
+</body>
+
+</html>
